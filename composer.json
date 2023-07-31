@@ -1,0 +1,17 @@
+{
+    "name": "nancy/real-s",
+    "description": "project to poo",
+    "authors": [
+        {
+            "name": "nancy"
+        }
+    ],
+    "require": {
+        "intervention/image": "^2.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "./classes"
+        }
+    }
+}
