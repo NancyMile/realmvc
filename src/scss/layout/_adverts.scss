@@ -1,0 +1,43 @@
+@include tablet{
+    .container-adverts{
+        @include grid(3, 2rem);
+    }
+}
+
+.advert{
+    background-color: lighten($gris,5);
+    border: 1px solid darken($gris,10);
+    margin-bottom: 2rem;
+    .content-advert{
+        padding: 2rem;
+    }
+
+    h3,p {
+        margin: 0;
+    }
+}
+
+.price {
+    color: $verde;
+    font-size: 2.4rem;
+}
+.icons-characteristics{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    max-width: 40rem;
+}
+
+li {
+    flex: 1; //help icons to have same size.
+    display: flex;
+
+    img {
+        flex: 0 0 3rem;
+        margin-right: 1rem;
+    }
+
+    p{
+        font-weight:$black;
+    }
+}
