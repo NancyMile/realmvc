@@ -1,9 +1,10 @@
 <?php
 namespace Controllers;
+use MVC\Router;
 
 class PropertyController{
-    public static function index(){
-        echo "Index";
+    public static function index(Router $router){
+        $router->render('properties/admin');
     }
 
     public static function crete(){
