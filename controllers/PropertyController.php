@@ -15,6 +15,11 @@ class PropertyController{
     public static function create(Router $router){
         $property = new Property;
         $sellers = Seller::all();
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+
+        }
+
         $router->render('properties/create',['property' => $property, 'sellers' => $sellers]);
     }
 
