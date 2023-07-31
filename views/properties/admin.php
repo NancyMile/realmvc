@@ -1,2 +1,2 @@
 <h1>Admin</h1>
-<p>From views</p>
+<p>From views <?php echo $property_type ; ?></p>
