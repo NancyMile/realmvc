@@ -11,4 +11,3 @@
     <input type="submit" value="Save" class="btn btn-green">
     </form>
 </main>
-<?php addTemplate('footer'); ?>
