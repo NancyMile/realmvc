@@ -26,7 +26,7 @@
           <td><img src="/images/<?php echo $property->image;?>" alt="image" class="image-table"></td>
           <td>$ <?php echo $property->price;?></td>
           <td>
-            <a href="/admin/properties/update.php?id=<?php echo $property->id; ?>" class="btn-yellow-block">Update</a>
+            <a href="/properties/update?id=<?php echo $property->id; ?>" class="btn-yellow-block">Update</a>
             <form method="POST" class="w-100">
               <input type="hidden" name="id" value="<?php echo $property->id; ?>">
               <input type="hidden" name="type" value="property">

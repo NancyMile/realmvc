@@ -53,7 +53,45 @@ class PropertyController{
         $router->render('properties/create',['property' => $property, 'sellers' => $sellers, 'errors' => $errors]);
     }
 
-    public static function update(){
-        echo "Update";
+    public static function update(Router $router){
+        $id = validOrRedirect('/admin');
+        $errors = Property::getErrors();
+        $sellers = Seller::all();
+
+        $property = Property::find($id);
+
+        //executes after the user sends the form
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            //debugear($_POST);
+            $args = $_POST['property'];
+
+            $property->sincronnise($args);
+            //debugear($property);
+
+            $errors = $property->validate();
+            //debugear($errors);
+
+            // generate a unique imagename
+            $imageName = md5(uniqid(rand(),true)).".jpg";
+
+            //debugear($_FILES['property']);
+
+            if($_FILES['property']['tmp_name']['image']){
+                //resize image with  intervention image
+                $image = Image::make($_FILES['property']['tmp_name']['image'])->fit(800,600);
+                $property->setImage($imageName);
+            }
+
+            //check that $errors array is empty
+            if(empty($errors)){
+                if($_FILES['property']['tmp_name']['image']){
+                    //save image
+                    $image->save(IMAGES_FOLDER.$imageName);
+                }
+                //update record
+                $result = $property->saving();
+            }
+        }
+        $router->render('/properties/update',['property' => $property, 'errors' =>$errors, 'sellers' => $sellers]);
     }
 }

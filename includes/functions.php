@@ -55,3 +55,14 @@ function displayMessages($cod){
     return $message;
 }
 
+//valid or redirect
+function validOrRedirect($url){
+    // validate url valid ID
+    $id =$_GET['id'];
+    $id = filter_var($id,FILTER_VALIDATE_INT);
+    if(!$id){
+        header("Location: $url");
+    }
+
+    return $id;
+}
