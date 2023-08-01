@@ -37,4 +37,33 @@
         <?php endforeach; ?>
       </tbody>
     </table>
+    <h2>Sellers</h2>
+    <table class="properties">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <!-- display results-->
+      <tbody>
+        <?php foreach($sellers as $seller): ?>
+        <tr>
+          <td><?php echo $seller->id;?></td>
+          <td><?php echo $seller->name. ' '.$seller->lastname;?></td>
+          <td><?php echo $seller->phone;?></td>
+          <td>
+            <a href="/admin/sellers/update.php?id=<?php echo $seller->id; ?>" class="btn-yellow-block">Update</a>
+            <form method="POST" class="w-100">
+              <input type="hidden" name="id" value="<?php echo $seller->id; ?>">
+              <input type="hidden" name="type" value="seller">
+              <input type="submit" class="btn btn-red-block" value ="Delete">
+            </form>
+          </td>
+        </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
 </main>
