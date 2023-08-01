@@ -1,11 +1,14 @@
 <?php
 namespace Controllers;
  use MVC\Router;
+ use Model\Property;
 
  class PageController{
     
-    public static function index(){
-        echo "Index";
+    public static function index(Router $router){
+        $home = true;
+        $properties = Property::get(3);
+        $router->render('/pages/index',['properties' => $properties, 'home' => $home]);
     }
 
     public static function about(){

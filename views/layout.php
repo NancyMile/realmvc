@@ -37,9 +37,9 @@
               <a href="blog">Blog</a>
               <a href="contact">Contact Us</a>
               <?php if($auth): ?>
-                <a href="close-session.php">Log out</a>
+                <a href="close-session">Log out</a>
                 <?php else: ?>
-                <a href="login.php">Login</a>
+                <a href="login">Login</a>
               <?php endif; ?>
             </nav>
           </div>
@@ -53,10 +53,10 @@
     <footer class="footer section">
       <div class="contenedor contenedor-footer">
         <nav class="navigation">
-          <a href="about.php">About</a>
-          <a href="advert.php">Adverts</a>
-          <a href="blog.php">Blog</a>
-          <a href="contact.php">Contact Us</a>
+          <a href="about">About</a>
+          <a href="properties">Adverts</a>
+          <a href="blog">Blog</a>
+          <a href="contact">Contact Us</a>
         </nav>
       </div>
       <p class="copyright">All Rights reserved. <?php echo $date = date('Y'); ?> &copy</p>
