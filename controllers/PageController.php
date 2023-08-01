@@ -35,7 +35,10 @@ namespace Controllers;
         $router->render('pages/entry');
     }
 
-    public static function contact(){
-        echo "Contact";
+    public static function contact(Router $router){
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            //debugear($_POST);
+        }
+        $router->render('pages/contact');
     }
  }
