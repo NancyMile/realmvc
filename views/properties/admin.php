@@ -56,9 +56,9 @@
           <td><?php echo $seller->phone;?></td>
           <td>
             <a href="/sellers/update?id=<?php echo $seller->id; ?>" class="btn-yellow-block">Update</a>
-            <form method="POST" class="w-100">
+            <form method="POST" class="w-100" action="/sellers/delete">
               <input type="hidden" name="id" value="<?php echo $seller->id; ?>">
-              <input type="hidden" name="type" value="seller">
+              <input type="hidden" name="type" value="sellers">
               <input type="submit" class="btn btn-red-block" value ="Delete">
             </form>
           </td>

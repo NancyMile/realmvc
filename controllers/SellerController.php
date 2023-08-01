@@ -49,6 +49,20 @@ class SellerController{
     }
 
     public static function delete(){
-        echo "DELETE";   
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $id = $_POST['id'];
+            $id = filter_var($id,FILTER_VALIDATE_INT);
+            if($id){
+                $type = $_POST['type'];
+                if(validateContentType($type)){
+                    //is valid type
+                    if($type === 'sellers'){
+                        //remove the file
+                        $seller = Seller::find($id);
+                        $seller->delete();
+                    }
+                }
+            }
+        }
     }
 }
