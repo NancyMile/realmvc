@@ -27,9 +27,9 @@
           <td>$ <?php echo $property->price;?></td>
           <td>
             <a href="/properties/update?id=<?php echo $property->id; ?>" class="btn-yellow-block">Update</a>
-            <form method="POST" class="w-100">
+            <form method="POST" class="w-100" action="/properties/delete">
               <input type="hidden" name="id" value="<?php echo $property->id; ?>">
-              <input type="hidden" name="type" value="property">
+              <input type="hidden" name="type" value="properties">
               <input type="submit" class="btn btn-red-block" value ="Delete">
             </form>
           </td>
