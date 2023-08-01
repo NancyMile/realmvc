@@ -35,7 +35,7 @@
                 <p><?php echo $property->rooms;?></p>
             </li>
             </ul>
-            <a class="btn btn-yellow-block" href="viewAdvert.php?id=<?php echo $property->id;?>">Property</a>
+            <a class="btn btn-yellow-block" href="property?id=<?php echo $property->id;?>">Property</a>
         </div>
     <!-- content advert-->
     </div>

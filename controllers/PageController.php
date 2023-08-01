@@ -15,12 +15,16 @@ namespace Controllers;
         $router->render('/pages/about');
     }
 
-    public static function properties(){
-        echo "Properties";
+    public static function properties(Router $router){
+        $properties = Property::all();
+        $router->render('/pages/properties',['properties' => $properties]);
     }
 
-    public static function property(){
-        echo "Property";
+    public static function property(Router $router){
+        $id = validOrRedirect('/');
+        $property = Property::find($id);
+
+        $router->render('/pages/property',['property' => $property]);
     }
 
     public static function blog(){
