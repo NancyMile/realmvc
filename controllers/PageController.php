@@ -27,12 +27,12 @@ namespace Controllers;
         $router->render('/pages/property',['property' => $property]);
     }
 
-    public static function blog(){
-        echo "Blog";
+    public static function blog(Router $router){
+        $router->render('/pages/blog');
     }
 
-    public static function entry(){
-        echo "Entry";
+    public static function entry(Router $router){
+        $router->render('pages/entry');
     }
 
     public static function contact(){
