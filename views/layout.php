@@ -32,10 +32,10 @@
           <div class="right">
             <img class="dark-mode-button" src="../build/img/dark-mode.svg">
             <nav class="navigation">
-              <a href="about.php">About</a>
-              <a href="advert.php">Adverts</a>
-              <a href="blog.php">Blog</a>
-              <a href="contact.php">Contact Us</a>
+              <a href="about">About</a>
+              <a href="properties">Adverts</a>
+              <a href="blog">Blog</a>
+              <a href="contact">Contact Us</a>
               <?php if($auth): ?>
                 <a href="close-session.php">Log out</a>
                 <?php else: ?>
