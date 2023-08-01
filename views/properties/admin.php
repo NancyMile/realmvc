@@ -5,7 +5,7 @@
         <p class="alert success"> <?php echo sanitizingHtml($message); ?> </p>
       <?php } ?>
     <a href="/properties/create" class="btn btn-green">Create Property</a>
-    <a href="/admin/sellers/create.php" class="btn btn-yellow">Create Seller</a>
+    <a href="/sellers/create" class="btn btn-yellow">Create Seller</a>
       <h2>Properties</h2>
     <table class="properties">
       <thead>
