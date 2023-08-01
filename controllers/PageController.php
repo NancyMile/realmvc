@@ -11,8 +11,8 @@ namespace Controllers;
         $router->render('/pages/index',['properties' => $properties, 'home' => $home]);
     }
 
-    public static function about(){
-        echo "About";
+    public static function about(Router $router){
+        $router->render('/pages/about');
     }
 
     public static function properties(){
