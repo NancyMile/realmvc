@@ -39,6 +39,8 @@ use PHPMailer\PHPMailer\PHPMailer;
 
     public static function contact(Router $router){
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $response = $_POST['contact'];
+
             //intanciate phpmailer
             $mail = new PHPMailer();
             //configure smtp
@@ -60,7 +62,19 @@ use PHPMailer\PHPMailer\PHPMailer;
             $mail->CharSet = 'UTF-8';
 
             //body content
-            $content ='<html><p>New message from realmvc! </p></html>';
+            $content ='<html>';
+            $content .= '<p>New message from realmvc! </p>';
+            $content .= '<p>Name: '. $response['name'].' </p>';
+            $content .= '<p>Email: '. $response['email'].' </p>';
+            $content .= '<p>Phone: '. $response['phone'].' </p>';
+            $content .= '<p>Message: '. $response['message'].' </p>';
+            $content .= '<p>Type: '. $response['type'].' </p>';
+            $content .= '<p>Price: $ '. $response['price'].' </p>';
+            $content .= '<p>contact at: '. $response['contact'].' </p>';
+            $content .= '<p>Date: '. $response['date'].' </p>';
+            $content .= '<p>Time: '. $response['time'].' </p>';
+            $content .= '</html>';
+
             $mail->Body = $content;
             $mail->AltBody = "Text without html";
 
