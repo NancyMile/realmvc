@@ -61,18 +61,26 @@ use PHPMailer\PHPMailer\PHPMailer;
             $mail->isHtml(true);
             $mail->CharSet = 'UTF-8';
 
+            //debugear($response);
+
             //body content
             $content ='<html>';
             $content .= '<p>New message from realmvc! </p>';
             $content .= '<p>Name: '. $response['name'].' </p>';
-            $content .= '<p>Email: '. $response['email'].' </p>';
-            $content .= '<p>Phone: '. $response['phone'].' </p>';
             $content .= '<p>Message: '. $response['message'].' </p>';
             $content .= '<p>Type: '. $response['type'].' </p>';
             $content .= '<p>Price: $ '. $response['price'].' </p>';
-            $content .= '<p>contact at: '. $response['contact'].' </p>';
-            $content .= '<p>Date: '. $response['date'].' </p>';
-            $content .= '<p>Time: '. $response['time'].' </p>';
+
+            //send info according to user contat selection
+            if($response['contact'] === 'email'){
+                $content .= '<p> Please contact by email </p>';
+                $content .= '<p>Email: '. $response['email'].' </p>';
+            }else{
+                $content .= '<p>Please contact by phone </p>';
+                $content .= '<p>Phone: '. $response['phone'].' </p>';
+                $content .= '<p>Date: '. $response['date'].' </p>';
+                $content .= '<p>Time: '. $response['time'].' </p>';
+            }
             $content .= '</html>';
 
             $mail->Body = $content;
