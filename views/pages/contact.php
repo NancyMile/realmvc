@@ -1,5 +1,8 @@
 <main class="contenedor section">
     <h1>Contact Us</h1>
+    <?php if($message): ?>
+        <p class="alert success"><?php echo $message; ?></p>
+    <?php endif; ?>
     <picture>
         <source srcset="build/img/destacada3.webp" type="image/webp">
         <source srcset="build/img/destacada3.jpg" type="image/jpeg">

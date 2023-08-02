@@ -88,12 +88,12 @@ use PHPMailer\PHPMailer\PHPMailer;
 
             //send email
             if($mail->send()){
-                echo " Email sent";
+                $message = " Email sent";
             }else{
-                echo "Email not sent";
+                $message = "Email not sent";
             }
 
         }
-        $router->render('pages/contact');
+        $router->render('pages/contact', ['message' => $message]);
     }
  }
