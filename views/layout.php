@@ -37,7 +37,7 @@
               <a href="blog">Blog</a>
               <a href="contact">Contact Us</a>
               <?php if($auth): ?>
-                <a href="close-session">Log out</a>
+                <a href="/logout">Log out</a>
                 <?php else: ?>
                 <a href="login">Login</a>
               <?php endif; ?>

@@ -61,6 +61,4 @@ class Admin extends ActiveRecord {
 
         header('location: /admin');
     }
-
-
 }
