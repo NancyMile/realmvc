@@ -14,10 +14,19 @@ class LoginController{
 
             if(empty($errors)){
                 //verify is user exists
-
-                //verify pass
-
-                //authenticate user
+                $result = $auth->verifyUserExists();
+                if(!$result){
+                    $errors = Admin::getErrors();
+                }else{
+                    //verify pass
+                    $authenticated = $auth->verifyPassExists($result);
+                    if(!$authenticated){
+                        $errors = Admin::getErrors();
+                    }else{
+                        //authenticate user
+                        $auth->loginAuthUser();
+                    }
+                }
             }
         }
 
