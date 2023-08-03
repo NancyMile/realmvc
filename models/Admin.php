@@ -18,4 +18,15 @@ class Admin extends ActiveRecord {
         $this->password = $args['password'] ?? '';
     }
 
+    public function validate(){
+        if(!$this->email){
+            self::$errors[] = 'Please enter email';
+        }
+
+        if(!$this->password){
+            self::$errors[] = 'Please enter password';
+        }
+
+        return self::$errors;
+    }
 }
