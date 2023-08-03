@@ -15,6 +15,13 @@ class Router{
 
     public function verifyRoute()
     {
+        session_start();
+        $auth = $_SESSION['login'] ?? null ;// true or false,assing null in case is not authenticated
+
+        //array of protected routes
+        $protected_routes = ['/admin', '/properties/create','/properties/update',
+                            'properties/delete','/sellers/create','/sellers/update','sellers/delete'];
+
         $urlActual = $_SERVER['PATH_INFO'] ?? '/';
         $method = $_SERVER['REQUEST_METHOD'];
         
@@ -23,6 +30,11 @@ class Router{
             $fn = $this->routeGET[$urlActual] ?? null;
         }else{
             $fn = $this->routePOST[$urlActual] ?? null;
+        }
+
+        //pretecting routes is not an auth user
+        if(in_array($urlActual,$protected_routes) && !$auth){
+            header('location: /');
         }
 
         if($fn){
